@@ -1,5 +1,4 @@
 services:
-  # Сервис для бэкенда
   - type: web
     name: backend
     env: node
@@ -10,8 +9,6 @@ services:
       - type: rewrite
         source: /api/(.*)
         destination: /$1
-
-  # Сервис для фронтенда
   - type: web
     name: frontend
     env: node
