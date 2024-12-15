@@ -1,0 +1,24 @@
+services:
+  # Сервис для бэкенда
+  - type: web
+    name: backend
+    env: node
+    dir: backend
+    build_command: npm install
+    start_command: node server.js
+    routes:
+      - type: rewrite
+        source: /api/(.*)
+        destination: /$1
+
+  # Сервис для фронтенда
+  - type: web
+    name: frontend
+    env: node
+    dir: frontend
+    build_command: npm install && npm run build
+    start_command: npm start
+    routes:
+      - type: rewrite
+        source: /(.*)
+        destination: /$1
