@@ -9,6 +9,7 @@ services:
       - type: rewrite
         source: /api/(.*)
         destination: /$1
+
   - type: web
     name: frontend
     env: node
